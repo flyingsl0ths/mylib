@@ -5,32 +5,29 @@ private func merge<T>(_ left: [T], _ right: [T], comparator: Comparator<T>) -> [
     let rightSize = right.count
 
     var result: [T] = []
+    result.reserveCapacity(leftSize + rightSize)
 
     var i = 0
     var j = 0
-    var k = 0
 
     while i < leftSize && j < rightSize {
         if comparator(left[i], right[j]) {
-            result[k] = left[i]
+            result.append(left[i])
             i += 1
         } else {
-            result[k] = right[j]
+            result.append(right[i])
             j += 1
         }
-        k += 1
     }
 
     while i < leftSize {
-        result[k] = left[i]
+        result.append(left[i])
         i += 1
-        k += 1
     }
 
     while j < rightSize {
-        result[k] = right[j]
+        result.append(right[j])
         j += 1
-        k += 1
     }
 
     return result
