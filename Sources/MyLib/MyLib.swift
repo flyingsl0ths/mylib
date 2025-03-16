@@ -34,7 +34,7 @@ private func merge(_ left: [Int], _ right: [Int]) -> [Int] {
     return result
 }
 
-func mergeSort(_ array: [Int]) -> [Int] {
+public func mergeSort(_ array: [Int]) -> [Int] {
     let total = array.count
 
     if total <= 1 {
