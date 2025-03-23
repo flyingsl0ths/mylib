@@ -3,7 +3,9 @@ import Testing
 @testable import MyLib
 
 @Test func example() async throws {
-    let data = [1, 2, 2, 5, 6, 7, 7, 9, 9, 8, 9, -1, 11, 10]
+    let data = (0..<1000).map { _ in
+        Int.random(in: 0...1000)
+    }
 
-    #expect(mergeSort(data) == data.sorted(), "List not sorted")
+    #expect(mergeSort(data, { $0 <= $1 }) == data.sorted(), "List not sorted")
 }
